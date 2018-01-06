@@ -22,10 +22,10 @@ public class FirebaseUniversalsViewHolder extends RecyclerView.ViewHolder implem
         universeView.setOnClickListener(this);
     }
 
-    public void bindUniversal(Universals universal){
+    public void bindUniversal(UniversalItem universalItem){
         CardView cardView = (CardView)itemView.findViewById(R.id.uCardView);
         TextView uTextView = (TextView)itemView.findViewById(R.id.uTextView);
-        uTextView.setText(universal.getPhone());
+        //uTextView.setText(universal.getPhone());
     }
 
     @Override

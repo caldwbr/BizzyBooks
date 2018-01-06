@@ -17,20 +17,20 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
-    DatabaseReference myUniversalsRef = database.getReference(Constants.FIREBASE_CHILD_UNIVERSALS);
+    private DatabaseReference universalItemDatabase;
+    UniversalItem universalItem;
+    String userUID;
+    String path;
     int RC_SIGN_IN = 101; //?????
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
     private GoogleApiClient client;
 
     @Override
@@ -38,15 +38,30 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        myRef.setValue("Hello, Firey World! From the Android Environment!");
-
         FirebaseAuth auth = FirebaseAuth.getInstance();
         if (auth.getCurrentUser() != null) {
             // already signed in
+            userUID = auth.getCurrentUser().getUid();
+            path = String.format("users/%s/universals", userUID);
+            universalItemDatabase = FirebaseDatabase.getInstance().getReference(path);
+            universalItemDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        universalItem = new UniversalItem(snapshot);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
             Toast.makeText(getApplicationContext(), "You are signed in!", Toast.LENGTH_LONG).show();
             Integer theId = 1;
             String name = "Bradlay";
             String phone = "whyOfCourse3343327799";
+
             //myUniversalsRef.push().setValue(new Universals(theId, name, phone));
         } else {
             startActivityForResult(

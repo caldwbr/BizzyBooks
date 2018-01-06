@@ -11,69 +11,69 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Universals {
+public class UniversalItem {
 
-    private Integer multiversalType = 0;
-    private Integer balOneAfter = 0;
-    private String balOneAfterString = "$0.00";
-    private Integer balTwoAfter = 0;
-    private String balTwoAfterString = "$0.00";
-    private Integer projectStatusId = -1;
-    private String projectStatusString = "";
-    private String key;
-    private Integer universalItemType;
-    private String projectItemName;
-    private String projectItemKey;
-    private Integer odometerReading;
-    private String whoName;
-    private String whoKey;
-    private Integer what;
-    private String whomName;
-    private String whomKey;
-    private String taxReasonName;
-    private Integer taxReasonId;
-    private String vehicleName;
-    private String vehicleKey;
-    private String workersCompName;
-    private Integer workersCompId;
-    private String advertisingMeansName;
-    private Integer advertisingMeansId;
-    private String personalReasonName;
-    private Integer personalReasonId;
-    private Integer percentBusiness;
-    private String accountOneName;
-    private String accountOneKey;
-    private Integer accountOneType;
-    private String accountTwoName;
-    private String accountTwoKey;
-    private Integer accountTwoType;
-    private Integer howMany;
-    private String fuelTypeName;
-    private Integer fuelTypeId;
-    private Boolean useTax;
-    private String notes;
-    private String picUrl;
-    private Integer picAspectRatio;
-    private Integer picNumber;
-    private String projectPicTypeName;
-    private Integer projectPicTypeId;
-    private Object timeStamp;
-    private Double latitude;
-    private Double longitude;
-    private Boolean atmFee; // For future use
-    private Integer feeAmount; // For future use
-    private DatabaseReference ref;
+    public Long multiversalType = 0L;
+    public Long balOneAfter = 0L;
+    public String balOneAfterString = "$0.00";
+    public Long balTwoAfter = 0L;
+    public String balTwoAfterString = "$0.00";
+    public Long projectStatusId = -1L;
+    public String projectStatusString = "";
+    public String key;
+    public Long universalItemType;
+    public String projectItemName;
+    public String projectItemKey;
+    public Long odometerReading;
+    public String whoName;
+    public String whoKey;
+    public Long what;
+    public String whomName;
+    public String whomKey;
+    public String taxReasonName;
+    public Long taxReasonId;
+    public String vehicleName;
+    public String vehicleKey;
+    public String workersCompName;
+    public Long workersCompId;
+    public String advertisingMeansName;
+    public Long advertisingMeansId;
+    public String personalReasonName;
+    public Long personalReasonId;
+    public Long percentBusiness;
+    public String accountOneName;
+    public String accountOneKey;
+    public Long accountOneType;
+    public String accountTwoName;
+    public String accountTwoKey;
+    public Long accountTwoType;
+    public Long howMany;
+    public String fuelTypeName;
+    public Long fuelTypeId;
+    public Boolean useTax;
+    public String notes;
+    public String picUrl;
+    public Long picAspectRatio;
+    public Long picNumber;
+    public String projectPicTypeName;
+    public Long projectPicTypeId;
+    public Object timeStamp;
+    public Double latitude;
+    public Double longitude;
+    public Boolean atmFee; // For future use
+    public Long feeAmount; // For future use
+    public DatabaseReference ref;
 
-    public Universals() {}
+    public UniversalItem() {}
 
-    public Universals(Integer multiversalType, Integer balOneAfter, String balOneAfterString, Integer balTwoAfter, String balTwoAfterString, Integer projectStatusId,
-                      String projectStatusString, String key, Integer universalItemType, String projectItemName, String projectItemKey, Integer odometerReading,
-                      String whoName, String whoKey, Integer what, String whomName, String whomKey, String taxReasonName, Integer taxReasonId, String vehicleName,
-                      String vehicleKey, String workersCompName, Integer workersCompId, String advertisingMeansName, Integer advertisingMeansId, String personalReasonName,
-                      Integer personalReasonId, Integer percentBusiness, String accountOneName, String accountOneKey, Integer accountOneType, String accountTwoName,
-                      String accountTwoKey, Integer accountTwoType, Integer howMany, String fuelTypeName, Integer fuelTypeId, Boolean useTax, String notes, String picUrl,
-                      Integer picAspectRatio, Integer picNumber, String projectPicTypeName, Integer projectPicTypeId, Object timeStamp, Double latitude, Double longitude,
-                      Boolean atmFee, Integer feeAmount, DatabaseReference ref){
+    public UniversalItem(Long multiversalType, Long balOneAfter, String balOneAfterString, Long balTwoAfter, String balTwoAfterString, Long projectStatusId,
+                      String projectStatusString, String key, Long universalItemType, String projectItemName, String projectItemKey, Long odometerReading,
+                      String whoName, String whoKey, Long what, String whomName, String whomKey, String taxReasonName, Long taxReasonId, String vehicleName,
+                      String vehicleKey, String workersCompName, Long workersCompId, String advertisingMeansName, Long advertisingMeansId, String personalReasonName,
+                      Long personalReasonId, Long percentBusiness, String accountOneName, String accountOneKey, Long accountOneType, String accountTwoName,
+                      String accountTwoKey, Long accountTwoType, Long howMany, String fuelTypeName, Long fuelTypeId, Boolean useTax, String notes, String picUrl,
+                      Long picAspectRatio, Long picNumber, String projectPicTypeName, Long projectPicTypeId, Object timeStamp, Double latitude, Double longitude,
+                      Boolean atmFee, Long feeAmount, DatabaseReference ref){
         this.multiversalType = multiversalType;
         this.balOneAfter = balOneAfter;
         this.balOneAfterString = balOneAfterString;
@@ -126,53 +126,53 @@ public class Universals {
         this.ref = null;
     }
 
-    public Universals(DataSnapshot snapshot) {
+    public UniversalItem(DataSnapshot snapshot) {
         key = snapshot.getKey();
         @SuppressWarnings({"unchecked"})
-        Map<String, Object> map = snapshot.getValue(Map.class); // The reason we don't set multiversalType is it gets set automatically at top.
-        universalItemType = map.get("universalItemType") != null ? (Integer)map.get("universalItemType") : 0; // We don't set balOneAfter or projStatus b/c
+        Map<String, Object> map = (Map<String, Object>)snapshot.getValue(); // The reason we don't set multiversalType is it gets set automatically at top
+        universalItemType = map.get("universalItemType") != null ? (Long)map.get("universalItemType") : 0; // We don't set balOneAfter or projStatus b/c
         projectItemName = map.get("projectItemName") != null ? (String)map.get("projectItemName") : ""; // they get set at runtime as they are ever changing
         projectItemKey = map.get("projectItemKey") != null ? (String)map.get("projectItemKey") : ""; // as project updates or users update already entered items.
-        odometerReading = map.get("odometerReading") != null ? (Integer)map.get("odometerReading") : 0;
+        odometerReading = map.get("odometerReading") != null ? (Long)map.get("odometerReading") : 0;
         whoName = map.get("whoName") != null ? (String)map.get("whoName") : "";
         whoKey = map.get("whoKey") != null ? (String)map.get("whoKey") : "";
-        what = map.get("what") != null ? (Integer)map.get("what") : 0;
+        what = map.get("what") != null ? (Long)map.get("what") : 0;
         whomName = map.get("whomName") != null ? (String)map.get("whomName") : "";
         whomKey = map.get("whomKey") != null ? (String)map.get("whomKey") : "";
         taxReasonName = map.get("taxReasonName") != null ? (String)map.get("taxReasonName") : "";
-        taxReasonId = map.get("taxReasonId") != null ? (Integer)map.get("taxReasonId") : 0;
+        taxReasonId = map.get("taxReasonId") != null ? (Long)map.get("taxReasonId") : 0;
         vehicleName = map.get("vehicleName") != null ? (String)map.get("vehicleName") : "";
         vehicleKey = map.get("vehicleKey") != null ? (String)map.get("vehicleKey") : "";
         workersCompName = map.get("workersCompName") != null ? (String)map.get("workersCompName") : "";
-        workersCompId = map.get("workersCompeId") != null ? (Integer)map.get("workersCompId") : 0;
+        workersCompId = map.get("workersCompeId") != null ? (Long)map.get("workersCompId") : 0;
         advertisingMeansName = map.get("advertisingMeansName") != null ? (String)map.get("advertisingMeansName") : "";
-        advertisingMeansId = map.get("advertisingMeansId") != null ? (Integer)map.get("advertisingMeansId") : 0;
+        advertisingMeansId = map.get("advertisingMeansId") != null ? (Long)map.get("advertisingMeansId") : 0;
         personalReasonName = map.get("personalReasonName") != null ? (String)map.get("personalReasonName") : "";
-        personalReasonId = map.get("personalReasonId") != null ? (Integer)map.get("personalReasonId") : 0;
-        percentBusiness = map.get("percentBusiness") != null ? (Integer)map.get("percentBusiness") : 0;
+        personalReasonId = map.get("personalReasonId") != null ? (Long)map.get("personalReasonId") : 0;
+        percentBusiness = map.get("percentBusiness") != null ? (Long)map.get("percentBusiness") : 0;
         accountOneName = map.get("accountOneName") != null ? (String)map.get("accountOneName") : "";
         accountOneKey = map.get("accountOneKey") != null ? (String)map.get("accountOneKey") : "";
-        accountOneType = map.get("accountOneType") != null ? (Integer)map.get("accountOneType") : 0;
+        accountOneType = map.get("accountOneType") != null ? (Long)map.get("accountOneType") : 0;
         accountTwoName = map.get("accountTwoName") != null ? (String)map.get("accountTwoName") : "";
         accountTwoKey = map.get("accountTwoKey") != null ? (String)map.get("accountTwoKey") : "";
-        accountTwoType = map.get("accountTwoType") != null ? (Integer)map.get("accountTwoType") : 0;
-        howMany = map.get("howMany") != null ? (Integer)map.get("howMany") : 0;
+        accountTwoType = map.get("accountTwoType") != null ? (Long)map.get("accountTwoType") : 0;
+        howMany = map.get("howMany") != null ? (Long)map.get("howMany") : 0;
         fuelTypeName = map.get("fuelTypeName") != null ? (String)map.get("fuelTypeName") : "";
-        fuelTypeId = map.get("fuelTypeId") != null ? (Integer)map.get("fuelTypeId") : 0;
+        fuelTypeId = map.get("fuelTypeId") != null ? (Long)map.get("fuelTypeId") : 0;
         useTax = map.get("useTax") != null ? (Boolean)map.get("useTax") : false;
         notes = map.get("notes") != null ? (String)map.get("notes") : "";
         picUrl = map.get("picUrl") != null ? (String)map.get("picUrl") : "";
-        picAspectRatio = map.get("picAspectRatio") != null ? (Integer)map.get("picAspectRatio") : 1;
-        picNumber = map.get("picNumber") != null ? (Integer)map.get("picNumber") : 0; //Only AddUniversal uses this, but not as a check (picUrl != "" is used instead)
+        picAspectRatio = map.get("picAspectRatio") != null ? (Long)map.get("picAspectRatio") : 1;
+        picNumber = map.get("picNumber") != null ? (Long)map.get("picNumber") : 0; //Only AddUniversal uses this, but not as a check (picUrl != "" is used instead)
         //But, it is still important because AddUniversal uses it in editing an item if user replaces image, ALSO for creating name for url Path
         projectPicTypeName = map.get("projectPicTypeName") != null ? (String)map.get("projectPicTypeName") : "";
-        projectPicTypeId = map.get("projectPicTypeId") != null ? (Integer)map.get("projectPicTypeId") : 0;
-        timeStamp = map.get("timeStamp") != null ? (Integer)map.get("timeStamp") : 0; // WILL THIS WORK FOR ANY IE OBJECT???
+        projectPicTypeId = map.get("projectPicTypeId") != null ? (Long)map.get("projectPicTypeId") : 0;
+        timeStamp = map.get("timeStamp") != null ? (Long)map.get("timeStamp") : 0; // WILL THIS WORK FOR ANY IE OBJECT???
         latitude = map.get("latitude") != null ? (Double)map.get("latitude") : 0.0;
         longitude = map.get("longitude") != null ? (Double)map.get("longitude") : 0.0;
         atmFee = map.get("atmFee") != null ? (Boolean)map.get("atmFee") : false;
-        feeAmount = map.get("feeAmount") != null ? (Integer)map.get("feeAmount") : 0;
-        ref = snapshot.getRef();
+        feeAmount = map.get("feeAmount") != null ? (Long)map.get("feeAmount") : 0;
+        ref = snapshot.getRef(); //Why is this line needed?!??
     }
 
     public HashMap<String, Object> toMap() {
@@ -220,7 +220,7 @@ public class Universals {
         return map;
     }
 
-    //public Integer getTheMultiversalType() {
+    //public Long getTheMultiversalType() {
         //return multiversalType;
     //}
 
