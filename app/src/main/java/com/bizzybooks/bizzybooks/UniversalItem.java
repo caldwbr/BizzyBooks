@@ -8,10 +8,9 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class UniversalItem {
+public class UniversalItem implements MultiversalItem {
 
     public Long multiversalType = 0L;
     public Long balOneAfter = 0L;
@@ -130,48 +129,48 @@ public class UniversalItem {
         key = snapshot.getKey();
         @SuppressWarnings({"unchecked"})
         Map<String, Object> map = (Map<String, Object>)snapshot.getValue(); // The reason we don't set multiversalType is it gets set automatically at top
-        universalItemType = map.get("universalItemType") != null ? (Long)map.get("universalItemType") : 0; // We don't set balOneAfter or projStatus b/c
+        universalItemType = map.get("universalItemType") != null ? (Long)map.get("universalItemType") : 0L; // We don't set balOneAfter or projStatus b/c
         projectItemName = map.get("projectItemName") != null ? (String)map.get("projectItemName") : ""; // they get set at runtime as they are ever changing
         projectItemKey = map.get("projectItemKey") != null ? (String)map.get("projectItemKey") : ""; // as project updates or users update already entered items.
-        odometerReading = map.get("odometerReading") != null ? (Long)map.get("odometerReading") : 0;
+        odometerReading = map.get("odometerReading") != null ? (Long)map.get("odometerReading") : 0L;
         whoName = map.get("whoName") != null ? (String)map.get("whoName") : "";
         whoKey = map.get("whoKey") != null ? (String)map.get("whoKey") : "";
-        what = map.get("what") != null ? (Long)map.get("what") : 0;
+        what = map.get("what") != null ? (Long)map.get("what") : 0L;
         whomName = map.get("whomName") != null ? (String)map.get("whomName") : "";
         whomKey = map.get("whomKey") != null ? (String)map.get("whomKey") : "";
         taxReasonName = map.get("taxReasonName") != null ? (String)map.get("taxReasonName") : "";
-        taxReasonId = map.get("taxReasonId") != null ? (Long)map.get("taxReasonId") : 0;
+        taxReasonId = map.get("taxReasonId") != null ? (Long)map.get("taxReasonId") : 0L;
         vehicleName = map.get("vehicleName") != null ? (String)map.get("vehicleName") : "";
         vehicleKey = map.get("vehicleKey") != null ? (String)map.get("vehicleKey") : "";
         workersCompName = map.get("workersCompName") != null ? (String)map.get("workersCompName") : "";
-        workersCompId = map.get("workersCompeId") != null ? (Long)map.get("workersCompId") : 0;
+        workersCompId = map.get("workersCompeId") != null ? (Long)map.get("workersCompId") : 0L;
         advertisingMeansName = map.get("advertisingMeansName") != null ? (String)map.get("advertisingMeansName") : "";
-        advertisingMeansId = map.get("advertisingMeansId") != null ? (Long)map.get("advertisingMeansId") : 0;
+        advertisingMeansId = map.get("advertisingMeansId") != null ? (Long)map.get("advertisingMeansId") : 0L;
         personalReasonName = map.get("personalReasonName") != null ? (String)map.get("personalReasonName") : "";
-        personalReasonId = map.get("personalReasonId") != null ? (Long)map.get("personalReasonId") : 0;
-        percentBusiness = map.get("percentBusiness") != null ? (Long)map.get("percentBusiness") : 0;
+        personalReasonId = map.get("personalReasonId") != null ? (Long)map.get("personalReasonId") : 0L;
+        percentBusiness = map.get("percentBusiness") != null ? (Long)map.get("percentBusiness") : 0L;
         accountOneName = map.get("accountOneName") != null ? (String)map.get("accountOneName") : "";
         accountOneKey = map.get("accountOneKey") != null ? (String)map.get("accountOneKey") : "";
-        accountOneType = map.get("accountOneType") != null ? (Long)map.get("accountOneType") : 0;
+        accountOneType = map.get("accountOneType") != null ? (Long)map.get("accountOneType") : 0L;
         accountTwoName = map.get("accountTwoName") != null ? (String)map.get("accountTwoName") : "";
         accountTwoKey = map.get("accountTwoKey") != null ? (String)map.get("accountTwoKey") : "";
-        accountTwoType = map.get("accountTwoType") != null ? (Long)map.get("accountTwoType") : 0;
-        howMany = map.get("howMany") != null ? (Long)map.get("howMany") : 0;
+        accountTwoType = map.get("accountTwoType") != null ? (Long)map.get("accountTwoType") : 0L;
+        howMany = map.get("howMany") != null ? (Long)map.get("howMany") : 0L;
         fuelTypeName = map.get("fuelTypeName") != null ? (String)map.get("fuelTypeName") : "";
-        fuelTypeId = map.get("fuelTypeId") != null ? (Long)map.get("fuelTypeId") : 0;
+        fuelTypeId = map.get("fuelTypeId") != null ? (Long)map.get("fuelTypeId") : 0L;
         useTax = map.get("useTax") != null ? (Boolean)map.get("useTax") : false;
         notes = map.get("notes") != null ? (String)map.get("notes") : "";
         picUrl = map.get("picUrl") != null ? (String)map.get("picUrl") : "";
         picAspectRatio = map.get("picAspectRatio") != null ? (Long)map.get("picAspectRatio") : 1;
-        picNumber = map.get("picNumber") != null ? (Long)map.get("picNumber") : 0; //Only AddUniversal uses this, but not as a check (picUrl != "" is used instead)
+        picNumber = map.get("picNumber") != null ? (Long)map.get("picNumber") : 0L; //Only AddUniversal uses this, but not as a check (picUrl != "" is used instead)
         //But, it is still important because AddUniversal uses it in editing an item if user replaces image, ALSO for creating name for url Path
         projectPicTypeName = map.get("projectPicTypeName") != null ? (String)map.get("projectPicTypeName") : "";
-        projectPicTypeId = map.get("projectPicTypeId") != null ? (Long)map.get("projectPicTypeId") : 0;
-        timeStamp = map.get("timeStamp") != null ? (Long)map.get("timeStamp") : 0; // WILL THIS WORK FOR ANY IE OBJECT???
+        projectPicTypeId = map.get("projectPicTypeId") != null ? (Long)map.get("projectPicTypeId") : 0L;
+        timeStamp = map.get("timeStamp") != null ? (Long)map.get("timeStamp") : 0L; // WILL THIS WORK FOR ANY IE OBJECT???
         latitude = map.get("latitude") != null ? (Double)map.get("latitude") : 0.0;
         longitude = map.get("longitude") != null ? (Double)map.get("longitude") : 0.0;
         atmFee = map.get("atmFee") != null ? (Boolean)map.get("atmFee") : false;
-        feeAmount = map.get("feeAmount") != null ? (Long)map.get("feeAmount") : 0;
+        feeAmount = map.get("feeAmount") != null ? (Long)map.get("feeAmount") : 0L;
         ref = snapshot.getRef(); //Why is this line needed?!??
     }
 
@@ -218,6 +217,16 @@ public class UniversalItem {
         map.put("atmFee", atmFee);
         map.put("feeAmount", feeAmount);
         return map;
+    }
+
+    @Override
+    public void setMultiversalType(Long multiversalType) {
+        multiversalType = 0L;
+    }
+
+    @Override
+    public Long getMultiversalType() {
+        return 0L;
     }
 
     //public Long getTheMultiversalType() {
