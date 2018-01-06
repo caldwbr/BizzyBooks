@@ -1,0 +1,62 @@
+{
+  "project_info": {
+    "project_number": "904286153315",
+    "firebase_url": "https://bizzy-books.firebaseio.com",
+    "project_id": "bizzy-books",
+    "storage_bucket": "bizzy-books.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:904286153315:android:865c424b88fd3998",
+        "android_client_info": {
+          "package_name": "com.bizzybooks.bizzybooks"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "904286153315-k672m6vmu8h20k22poh348truj0u9snb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bizzybooks.bizzybooks",
+            "certificate_hash": "323AFB432D59C9C4F59B10DC89CB3A324AC973B5"
+          }
+        },
+        {
+          "client_id": "904286153315-d97o6olpv02e2njudnmj7fallnd4453l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-Jk3DTHhKrzF4ImuV7S5_mbjGiWp7g4M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "904286153315-d97o6olpv02e2njudnmj7fallnd4453l.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "904286153315-6qq4gmeos07gpgmgt54ospv3fvpg0724.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bizzybooks.Bizzy-Books"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
