@@ -12,7 +12,6 @@ import java.util.Map;
 
 public class UniversalItem implements MultiversalItem {
 
-    public Long multiversalType = 0L;
     public Long balOneAfter = 0L;
     public String balOneAfterString = "$0.00";
     public Long balTwoAfter = 0L;
@@ -65,22 +64,21 @@ public class UniversalItem implements MultiversalItem {
 
     public UniversalItem() {}
 
-    public UniversalItem(Long multiversalType, Long balOneAfter, String balOneAfterString, Long balTwoAfter, String balTwoAfterString, Long projectStatusId,
-                      String projectStatusString, String key, Long universalItemType, String projectItemName, String projectItemKey, Long odometerReading,
+    public UniversalItem(Long balOneAfter, String balOneAfterString, Long balTwoAfter, String balTwoAfterString, Long projectStatusId,
+                      String projectStatusString, Long universalItemType, String projectItemName, String projectItemKey, Long odometerReading,
                       String whoName, String whoKey, Long what, String whomName, String whomKey, String taxReasonName, Long taxReasonId, String vehicleName,
                       String vehicleKey, String workersCompName, Long workersCompId, String advertisingMeansName, Long advertisingMeansId, String personalReasonName,
                       Long personalReasonId, Long percentBusiness, String accountOneName, String accountOneKey, Long accountOneType, String accountTwoName,
                       String accountTwoKey, Long accountTwoType, Long howMany, String fuelTypeName, Long fuelTypeId, Boolean useTax, String notes, String picUrl,
                       Long picAspectRatio, Long picNumber, String projectPicTypeName, Long projectPicTypeId, Object timeStamp, Double latitude, Double longitude,
                       Boolean atmFee, Long feeAmount, DatabaseReference ref){
-        this.multiversalType = multiversalType;
         this.balOneAfter = balOneAfter;
         this.balOneAfterString = balOneAfterString;
         this.balTwoAfter = balTwoAfter;
         this.balTwoAfterString = balTwoAfterString;
         this.projectStatusId = projectStatusId;
         this.projectStatusString = projectStatusString;
-        this.key = key;
+        this.key = "";
         this.universalItemType = universalItemType;
         this.projectItemName = projectItemName;
         this.projectItemKey = projectItemKey;

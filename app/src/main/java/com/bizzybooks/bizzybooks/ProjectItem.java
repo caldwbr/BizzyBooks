@@ -12,7 +12,6 @@ import java.util.Map;
 
 public class ProjectItem implements MultiversalItem {
 
-    public Long multiversalType = 1L;
     public String key;
     public String name;
     public String customerName;
@@ -32,11 +31,10 @@ public class ProjectItem implements MultiversalItem {
     public ProjectItem() {
     }
 
-    public ProjectItem(Long multiversalType, String key, String name, String customerName, String customerKey, String howDidTheyHearOfYouString, Long howDidTheyHearOfYouId,
+    public ProjectItem(String name, String customerName, String customerKey, String howDidTheyHearOfYouString, Long howDidTheyHearOfYouId,
                        String projectTags, String projectAddressStreet, String projectAddressCity, String projectAddressState, String projectNotes, String projectStatusName,
                        Long projectStatusId, Object timeStamp, DatabaseReference ref) {
-        this.multiversalType = multiversalType;
-        this.key = key;
+        this.key = "";
         this.name = name;
         this.customerName = customerName;
         this.customerKey = customerKey;
