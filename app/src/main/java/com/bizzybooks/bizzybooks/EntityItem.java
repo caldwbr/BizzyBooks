@@ -40,6 +40,7 @@ public class EntityItem implements MultiversalItem {
         this.state = state;
         this.ssn = ssn;
         this.ein = ein;
+        this.timeStamp = timeStamp;
         this.ref = null;
     }
 
